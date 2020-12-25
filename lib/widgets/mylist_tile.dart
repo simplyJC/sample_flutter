@@ -14,7 +14,7 @@ class MyListTile extends StatelessWidget {
         style:  TextStyle(decoration: isCheck? TextDecoration.lineThrough:null),
       ),
       trailing: Checkbox(
-          activeColor: Colors.redAccent,
+          activeColor: Colors.blueAccent,
           value: isCheck,
           // checkboxState: isCheck,
 
