@@ -3,27 +3,30 @@ import 'package:sample_flutter/widgets/mylist_tile.dart';
 import 'package:sample_flutter/models/my_task.dart';
 
 class MyListView extends StatefulWidget {
+  final List <MyTask> myTask;
+  MyListView (this.myTask);
   @override
   _MyListViewState createState() => _MyListViewState();
 }
 
 class _MyListViewState extends State<MyListView> {
-  List<MyTask> myTask = [
-    MyTask(mynametask: 'Buy milk'),
-    MyTask(mynametask: 'Buy egg'),
-    MyTask(mynametask: 'Buy bread'),
 
-  ];
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(itemBuilder: (context, index) {
       return MyListTile(
-        myTaskTitle: myTask[index].mynametask,
-        isCheck: myTask[index].myIsDone,
+        myTaskTitle: widget.myTask[index].mynametask,
+        isCheck: widget.myTask[index].myIsDone,
+        myCheckCallback:  (checkboxState){
+          setState(() {
+            widget.myTask[index].toggleDone();
+          });
+
+        },
       );
     },
-      itemCount: myTask.length,
+      itemCount: widget.myTask.length,
     );
   }
 }
