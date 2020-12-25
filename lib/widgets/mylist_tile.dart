@@ -5,7 +5,8 @@ class MyListTile extends StatelessWidget {
 
    final bool isCheck ;
    final String myTaskTitle;
-   MyListTile ({this.isCheck, this.myTaskTitle});
+   final Function myCheckCallback;
+   MyListTile ({this.isCheck, this.myTaskTitle, this.myCheckCallback});
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +17,8 @@ class MyListTile extends StatelessWidget {
       trailing: Checkbox(
           activeColor: Colors.blueAccent,
           value: isCheck,
-          // checkboxState: isCheck,
-
+          onChanged:  myCheckCallback,
       ),
     );
   }
 }
-//using callback anonimously
-// (bool myCheckboxState) {
-// setState(() {
-// isCheck = myCheckboxState;
-// });
-// }
-
