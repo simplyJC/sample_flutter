@@ -15,14 +15,20 @@ class AddTaskMBottomSheet extends StatelessWidget {
           )
         ),
         child: Column(
+
           children: <Widget> [
+
             Text ('Add New Task',
             style: TextStyle(
               fontSize: 30.0,
               color: Colors.redAccent,
+
             )
               ,),
-            TextField(),
+            TextField(
+              autofocus: true,
+              textAlign: TextAlign.center,
+            ),
             FlatButton(onPressed: null, child: null)
           ],
         ),
