@@ -1,23 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sample_flutter/models/mytask_data.dart';
 import 'package:sample_flutter/screens/add_task_mbottomsheet.dart';
 import 'package:sample_flutter/widgets/mylist_view.dart';
 import 'package:sample_flutter/models/my_task.dart';
+import 'package:provider/provider.dart';
 
-class TaskScreen extends StatefulWidget {
-
+class TaskScreen extends StatelessWidget {
   // Widget myBuilderBottomSheet (BuildContext context) => Container ();
-  @override
-  _TaskScreenState createState() => _TaskScreenState();
-}
-
-class _TaskScreenState extends State<TaskScreen> {
-  List<MyTask> myTask = [
-    MyTask(mynametask: 'Buy milk'),
-    MyTask(mynametask: 'Buy egg'),
-    MyTask(mynametask: 'Buy bread'),
-
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +21,9 @@ class _TaskScreenState extends State<TaskScreen> {
               context: context,
               builder: (context) =>
                   AddTaskMBottomSheet ((newTaskTitle){
-            setState(() {
-              myTask.add(MyTask(mynametask: newTaskTitle));
-            });
+            // setState(() {
+            //   myTask.add(MyTask(mynametask: newTaskTitle));
+            // });
             Navigator.pop(context);
           }));
         },
@@ -59,7 +49,7 @@ class _TaskScreenState extends State<TaskScreen> {
                   height: 10.0,
                 ),
                 Text(
-                  '${myTask.length} Tasks',
+                  '${Provider.of<MyTaskData>(context).myTask.length} Tasks',
                   style: TextStyle(
                     color: Colors.white,
                   ),
@@ -77,7 +67,7 @@ class _TaskScreenState extends State<TaskScreen> {
                     topLeft: Radius.circular(20.0),
                   )
               ),
-              child: MyListView(myTask) ,
+              child: MyListView() ,
             ),
           ),
           //Expanded widget will take up much space
