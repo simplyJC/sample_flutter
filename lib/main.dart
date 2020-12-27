@@ -16,7 +16,8 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      builder: (context) => MyTaskData(),
+      //instead of build  change it to create
+      create: (context) => MyTaskData(),
       child: MaterialApp(
         home: TaskScreen(),
       ),

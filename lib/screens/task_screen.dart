@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:sample_flutter/models/mytask_data.dart';
 import 'package:sample_flutter/screens/add_task_mbottomsheet.dart';
 import 'package:sample_flutter/widgets/mylist_view.dart';
-import 'package:sample_flutter/models/my_task.dart';
 import 'package:provider/provider.dart';
 
 class TaskScreen extends StatelessWidget {
@@ -49,7 +48,7 @@ class TaskScreen extends StatelessWidget {
                   height: 10.0,
                 ),
                 Text(
-                  '${Provider.of<MyTaskData>(context).myTask.length} Tasks',
+                  '${Provider.of<MyTaskData>(context).myTaskCount} Tasks',
                   style: TextStyle(
                     color: Colors.white,
                   ),
