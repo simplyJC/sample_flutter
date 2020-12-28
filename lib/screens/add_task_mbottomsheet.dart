@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sample_flutter/models/mytask_data.dart';
+
 
 class AddTaskMBottomSheet extends StatelessWidget {
- final Function functionMyAddTaskCallback;
- AddTaskMBottomSheet(this.functionMyAddTaskCallback);
 
   @override
   Widget build(BuildContext context) {
@@ -44,8 +45,9 @@ class AddTaskMBottomSheet extends StatelessWidget {
               ),
               color: Colors.redAccent,
               onPressed: () {
-                functionMyAddTaskCallback (newTaskTitle);
-                //print(newTaskTitle);
+                Provider.of<MyTaskData>(context).addMyTask(newTaskTitle);
+                Navigator.pop(context);
+
               },
             ),
           ],

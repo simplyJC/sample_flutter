@@ -17,16 +17,12 @@ class TaskScreen extends StatelessWidget {
         child: Icon(Icons.add),
         onPressed:  () {
           showModalBottomSheet(
-              context: context,
-              builder: (context) =>
-                  AddTaskMBottomSheet ((newTaskTitle){
-            // setState(() {
-            //   myTask.add(MyTask(mynametask: newTaskTitle));
-            // });
-            Navigator.pop(context);
-          }));
+            context: context,
+            builder: (context) => AddTaskMBottomSheet(),
+          );
         },
-      ),
+    ),
+
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget> [

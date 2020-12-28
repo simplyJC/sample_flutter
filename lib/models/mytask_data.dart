@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:sample_flutter/models/my_task.dart';
-class MyTaskData extends ChangeNotifier{
 
+class MyTaskData extends ChangeNotifier {
   List<MyTask> myTask = [
     MyTask(mynametask: 'Buy milk'),
     MyTask(mynametask: 'Buy egg'),
@@ -9,6 +9,12 @@ class MyTaskData extends ChangeNotifier{
   ];
 
   int get myTaskCount {
-    return  myTask.length;
+    return myTask.length;
+  }
+
+  void addMyTask(String newValueOfText) {
+    final myNewTask = MyTask(mynametask: newValueOfText);
+    myTask.add(myNewTask);
+    notifyListeners();
   }
 }
