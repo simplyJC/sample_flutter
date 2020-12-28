@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter/foundation.dart';
 import 'package:sample_flutter/models/my_task.dart';
 
@@ -8,8 +10,8 @@ class MyTaskData extends ChangeNotifier {
     MyTask(mynametask: 'Buy bread'),
   ];
 //creating  getter
-  List<MyTask> get getterMyTask {
-    return _myTask;
+  UnmodifiableListView<MyTask> get getterMyTask {
+    return UnmodifiableListView(_myTask);
   }
 
   int get myTaskCount {
@@ -17,8 +19,10 @@ class MyTaskData extends ChangeNotifier {
   }
 
   void addMyTask(String newValueOfText) {
+    notifyListeners();
+
+    
     final myNewTask = MyTask(mynametask: newValueOfText);
     _myTask.add(myNewTask);
-    notifyListeners();
   }
 }
