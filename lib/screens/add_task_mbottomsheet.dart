@@ -3,11 +3,16 @@ import 'package:provider/provider.dart';
 import 'package:sample_flutter/models/mytask_data.dart';
 
 
-class AddTaskMBottomSheet extends StatelessWidget {
+class AddTaskMBottomSheet extends StatefulWidget {
 
   @override
+  _AddTaskMBottomSheetState createState() => _AddTaskMBottomSheetState();
+}
+
+class _AddTaskMBottomSheetState extends State<AddTaskMBottomSheet> {
+  String newTaskTitle;
+  @override
   Widget build(BuildContext context) {
-    String newTaskTitle;
     return Container(
       color: Color(0xff757575),
       child: Container(
@@ -29,11 +34,12 @@ class AddTaskMBottomSheet extends StatelessWidget {
                 color: Colors.redAccent,
               ),
             ),
+
             TextField(
               autofocus: true,
               textAlign: TextAlign.center,
-              onChanged: (newInputTitle){
-                newTaskTitle = newInputTitle;
+              onChanged: (newText){
+                newTaskTitle = newText;
               },
             ),
             FlatButton(
@@ -45,7 +51,7 @@ class AddTaskMBottomSheet extends StatelessWidget {
               ),
               color: Colors.redAccent,
               onPressed: () {
-                Provider.of<MyTaskData>(context).addMyTask(newTaskTitle);
+                Provider.of<MyTaskData>(context).addMyTask(newTaskTitle??'');
                 Navigator.pop(context);
 
               },

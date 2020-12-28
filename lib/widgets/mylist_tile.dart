@@ -11,8 +11,10 @@ class MyListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text (myTaskTitle,
-        style:  TextStyle(decoration: isCheck? TextDecoration.lineThrough:null),
+      title: Text (
+        myTaskTitle,
+        style:  TextStyle(
+           decoration: isCheck? TextDecoration.lineThrough:null),
       ),
       trailing: Checkbox(
           activeColor: Colors.blueAccent,

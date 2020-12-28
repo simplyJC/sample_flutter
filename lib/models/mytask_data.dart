@@ -1,5 +1,4 @@
 import 'dart:collection';
-
 import 'package:flutter/foundation.dart';
 import 'package:sample_flutter/models/my_task.dart';
 
@@ -19,10 +18,13 @@ class MyTaskData extends ChangeNotifier {
   }
 
   void addMyTask(String newValueOfText) {
-    notifyListeners();
-
-    
     final myNewTask = MyTask(mynametask: newValueOfText);
     _myTask.add(myNewTask);
+    notifyListeners();
+  }
+
+  void updateMyTask (MyTask myNewTask){
+      myNewTask.toggleDone();
+      notifyListeners();
   }
 }
