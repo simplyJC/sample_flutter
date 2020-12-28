@@ -18,6 +18,9 @@ class MyListView extends StatelessWidget {
               myCheckCallback: (checkboxState) {
                 myTaskData.updateMyTask(newTask);
               },
+              longPressCallback: (){
+                myTaskData.deleteMyTask(newTask);
+              },
             );
           },
           itemCount: myTaskData.myTaskCount,

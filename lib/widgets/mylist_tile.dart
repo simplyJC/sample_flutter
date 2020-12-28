@@ -6,11 +6,13 @@ class MyListTile extends StatelessWidget {
    final bool isCheck ;
    final String myTaskTitle;
    final Function myCheckCallback;
-   MyListTile ({this.isCheck, this.myTaskTitle, this.myCheckCallback});
+   final Function longPressCallback;
+   MyListTile ({this.isCheck, this.myTaskTitle, this.myCheckCallback, this.longPressCallback});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onLongPress: longPressCallback,
       title: Text (
         myTaskTitle,
         style:  TextStyle(
